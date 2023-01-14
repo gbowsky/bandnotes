@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "zeppos-device-types-v1": "^1.0.9"
+  }
+}

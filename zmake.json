@@ -1,0 +1,4 @@
+{
+    "esbuild": false,
+    "esbuild_params": "--bundle"
+}
