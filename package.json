@@ -1,6 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
+    "esbuild": "^0.17.0",
     "zeppos-device-types-v1": "^1.0.9"
   }
 }

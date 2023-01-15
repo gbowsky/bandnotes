@@ -1,23 +1,38 @@
+import { FsUtils } from "../lib/fs";
+import { Bottom, Header, SimpleList } from "../lib/ui";
+
 class IndexPage {
-    start() {
-        hmUI.createWidget(hmUI.widget.TEXT, {
-            x: 0,
-            y: 0,
-            w: 196,
-            h: 96,
-            text: 'hello world',
-            fontSize: 16,
-            align_h: hmUI.align.CENTER_H,
-            align_v: hmUI.align.CENTER_V,
-            color: 0xffffff,
-          });
-    }
+  openSettings() {
+    hmApp.gotoPage({
+      url: 'page/SettingsPage',
+    });
+  }
+  openNote(index) {
+    hmApp.gotoPage({
+      url: 'page/NotePage',
+      param: index,
+    });
+  }
+  start() {
+    this.data = FsUtils.fetchJSON("notes.json");
+
+    Header({
+      title: 'BandNotes',
+    })
+    SimpleList(this.data, (_, index) => {
+      this.openNote(index);
+    }, 0, 96);
+
+    Bottom({ icon: 'settings', onClick: () => {
+      this.openSettings();
+    }});
+  }
 }
 
 let __$$app$$__ = __$$hmAppManager$$__.currentApp;
 __$$module$$__ = __$$app$$__.current;
 __$$module$$__.module = DeviceRuntimeCore.Page({
-  onInit(p) {
+  onInit() {
     new IndexPage().start();
   }
 });

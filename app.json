@@ -2,11 +2,11 @@
   "app": {
     "appId": 1973010481,
     "appIdType": 0,
-    "appName": "notes",
+    "appName": "BandNotes",
     "appType": "app",
     "description": "",
     "icon": "icon.png",
-    "vender": "root",
+    "vender": "gbowsky",
     "version": {
       "code": 1,
       "name": "1.0.0"
@@ -18,25 +18,21 @@
   "module": {
     "page": {
       "pages": [
-        "page/IndexPage"
-      ],
-      "window": {
-        "backgroundColor": "#eeeeee",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": ""
-      }
+        "page/IndexPage",
+        "page/ImagePage",
+        "page/SettingsPage"
+      ]
     }
   },
-  "permissions": [
-    "gps"
-  ],
+  "permissions": [],
   "runtime": {
     "apiVersion": {
       "compatible": "1.0.0",
       "minVersion": "1.0.0",
       "target": "1.0.1"
     }
-  }
+  },
+  "externalFilesList": [
+    "/storage/bn_settings.json"
+  ]
 }

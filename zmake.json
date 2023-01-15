@@ -1,4 +1,7 @@
 {
-    "esbuild": false,
-    "esbuild_params": "--bundle"
+    "esbuild": true,
+    "esbuild_params": "--bundle",
+    "adb_install": true,
+    "adb_path": "/storage/emulated/0/Download/",
+    "add_preview_asset": true
 }
