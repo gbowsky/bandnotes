@@ -8,8 +8,8 @@
     "icon": "icon.png",
     "vender": "gbowsky",
     "version": {
-      "code": 1,
-      "name": "1.0.0"
+      "code": 2,
+      "name": "1.0.1"
     }
   },
   "configVersion": "v2",
@@ -17,11 +17,7 @@
   "i18n": {},
   "module": {
     "page": {
-      "pages": [
-        "page/IndexPage",
-        "page/ImagePage",
-        "page/SettingsPage"
-      ]
+      "pages": ["page/IndexPage", "page/ImagePage", "page/SettingsPage"]
     }
   },
   "permissions": [],
@@ -32,7 +28,5 @@
       "target": "1.0.1"
     }
   },
-  "externalFilesList": [
-    "/storage/bn_settings.json"
-  ]
+  "externalFilesList": ["/storage/bn_settings.json"]
 }

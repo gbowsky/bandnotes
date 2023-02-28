@@ -1,11 +1,10 @@
 import { CONTRAST } from "../lib/defaults";
-import { FsUtils } from "../lib/fs";
 import { loadSettings } from "../lib/settings";
 import { Header } from "../lib/ui";
 
 class NotePage {
   constructor(index) {
-    this.start(FsUtils.fetchJSON("notes.json")[index]);
+    this.start(__$$app$$__.app.globalData.notes[index]);
   }
 
   start(note) {
@@ -40,5 +39,5 @@ __$$module$$__ = __$$app$$__.current;
 __$$module$$__.module = DeviceRuntimeCore.Page({
   onInit(index) {
     new NotePage(index);
-  }
+  },
 });

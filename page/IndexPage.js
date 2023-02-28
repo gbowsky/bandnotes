@@ -4,28 +4,43 @@ import { Bottom, Header, SimpleList } from "../lib/ui";
 class IndexPage {
   openSettings() {
     hmApp.gotoPage({
-      url: 'page/SettingsPage',
+      url: "page/SettingsPage",
     });
   }
   openNote(index) {
     hmApp.gotoPage({
-      url: 'page/NotePage',
+      url: "page/NotePage",
       param: index,
     });
   }
   start() {
-    this.data = FsUtils.fetchJSON("notes.json");
+    /*
+     * Globally store notes for perfomance reasons
+     */
+    if (!__$$app$$__.app.globalData.notes) {
+      console.log("readop");
+      __$$app$$__.app.globalData.notes = FsUtils.fetchJSON("notes.json");
+    }
 
     Header({
-      title: 'BandNotes',
-    })
-    SimpleList(this.data, (_, index) => {
-      this.openNote(index);
-    }, 0, 96);
+      title: "BandNotes",
+    });
 
-    Bottom({ icon: 'settings', onClick: () => {
-      this.openSettings();
-    }});
+    SimpleList(
+      __$$app$$__.app.globalData.notes,
+      (_, index) => {
+        this.openNote(index);
+      },
+      0,
+      96
+    );
+
+    Bottom({
+      icon: "settings",
+      onClick: () => {
+        this.openSettings();
+      },
+    });
   }
 }
 
@@ -34,5 +49,5 @@ __$$module$$__ = __$$app$$__.current;
 __$$module$$__.module = DeviceRuntimeCore.Page({
   onInit() {
     new IndexPage().start();
-  }
+  },
 });
